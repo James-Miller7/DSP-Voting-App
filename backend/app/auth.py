@@ -1,5 +1,5 @@
 from fastapi import Request, HTTPException, Depends
-from database import get_supabase
+from app.database import get_supabase
 
 async def get_current_user(request: Request, supabase = Depends(get_supabase)):
   token = request.headers.get("Authorization")

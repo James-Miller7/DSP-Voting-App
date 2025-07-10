@@ -11,6 +11,7 @@ class CandidateCreate(BaseModel):
 
 class UserProfile(BaseModel):
   email: EmailStr
+  full_name: str
   id: str
   role: str
 
