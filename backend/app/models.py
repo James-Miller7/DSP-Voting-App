@@ -1,8 +1,12 @@
 from pydantic import BaseModel, EmailStr
 from typing import Optional
+from enum import Enum
+
+class UserRole(str, Enum):
+    member = "member"
+    admin = "admin"
 
 class VoteCreate(BaseModel):
-  candidate_id: str
   vote_value: bool
 
 class CandidateCreate(BaseModel):
@@ -13,7 +17,7 @@ class UserProfile(BaseModel):
   email: EmailStr
   full_name: str
   id: str
-  role: str
+  role: UserRole
 
 class CandidateOut(BaseModel):
   id: str
