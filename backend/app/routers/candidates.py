@@ -33,6 +33,6 @@ async def get_current_candidate(supabase = Depends(get_supabase)):
 
 
 @router.delete("/candidates/reset")
-async def delete_candidates(supabase = Depends(get_supabase)):
+async def delete_candidates(supabase = Depends(get_supabase), user = Depends(is_admin_user)):
   await supabase.table("candidates").delete().neq("id", "00000000-0000-0000-0000-000000000000").execute()
-  return {"message": "All votes deleted successfully"}
+  return {"message": "All candidates deleted successfully"}
