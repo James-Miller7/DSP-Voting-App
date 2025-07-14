@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from app.models import CandidateCreate, CandidateOut
 from app.database import get_supabase
-from app.auth import get_current_user, is_admin_user
+from app.auth import is_admin_user
 
 
 router = APIRouter()
