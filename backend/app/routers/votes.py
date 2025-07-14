@@ -58,6 +58,7 @@ async def get_vote_results(candidate_id: str, supabase = Depends(get_supabase), 
   yes_votes = sum(1 for vote in votes if vote["vote_value"] is True)
   percentage_of_yes = yes_votes / total
   passed = percentage_of_yes >= 0.80
+  await supabase.table("candidates").update({"is_complete": True}).eq("id", candidate_id).execute()
 
   return {
     "total_votes": total,
