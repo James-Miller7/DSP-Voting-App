@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.routers import votes, candidates
+from app.routers import votes, candidates, profiles
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.openapi.models import APIKey, APIKeyIn
 from fastapi.security import HTTPBearer
@@ -10,6 +10,7 @@ app = FastAPI()
 
 app.include_router(votes.router)
 app.include_router(candidates.router)
+app.include_router(profiles.router)
 
 app.add_middleware(
     CORSMiddleware,

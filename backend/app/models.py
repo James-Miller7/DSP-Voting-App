@@ -13,11 +13,16 @@ class CandidateCreate(BaseModel):
   name: str
   answer: Optional[str] = None
 
-class UserProfile(BaseModel):
+class ProfileOut(BaseModel):
   email: EmailStr
   full_name: str
   id: str
   role: UserRole
+
+class ProfileIn(BaseModel):
+  email: EmailStr
+  full_name: str
+
 
 class CandidateOut(BaseModel):
   id: str
